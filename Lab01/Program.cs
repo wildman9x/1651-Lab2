@@ -11,13 +11,13 @@ public class Program
     {
         while (true)
         {
-            MainMenu();
+            PrintMainMenu();
             // clear the console
             Console.Clear();
         }
     }
 
-    public static void MainMenu() {
+    public static void PrintMainMenu() {
         var exampleDictionary = new Dictionary<int, Type>();
         var exampleInterfaceType = typeof(MainMenuItem);
         var exampleClasses = AppDomain.CurrentDomain.GetAssemblies()
