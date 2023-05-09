@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Lab01.Interface;
 using Lab01.MainMenuItems;
 using Lab01.Public;
+using Lab01.Public.MainMenu;
 
 public class Program
 {
@@ -12,27 +13,19 @@ public class Program
     {
         while (true)
         {
-            PrintMainMenu();
+            MainMenu();
             // clear the console
             Console.Clear();
         }
     }
 
-    public static void PrintMainMenu() {
+    public static void MainMenu()
+    {
         // Create a dictionary of the MainMenuItem interface
         Dictionary<int, Type> exampleDictionary = MainMenuDict.GetDict();
 
-        Console.WriteLine("Welcome to the Main Menu!");
-        Console.WriteLine("Please select an option:");
-        foreach (var example in exampleDictionary)
-        {
-            // Write key and call the GetName() method on the class
-            Console.WriteLine("{0}. {1}", example.Key, ((MainMenuItem)Activator.CreateInstance(example.Value)).GetName());
-        }
-        int option = int.Parse(Console.ReadLine());
-        var exampleInstance = (MainMenuItem)Activator.CreateInstance(exampleDictionary[option]);
-        exampleInstance.Run();
-        Console.WriteLine("Press any key to continue...");
-        Console.ReadKey();
+        MainMenuPrint.PrintMainMenu();
+        Option.Choose(exampleDictionary);
+
     }
 }

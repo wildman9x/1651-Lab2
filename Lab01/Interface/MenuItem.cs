@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace Lab01.Interface
 {
-    public interface MainMenuItem : MenuItem
+    public interface MenuItem
     {
-        
+        public string GetName();
+        public void Run();
     }
 }
