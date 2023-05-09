@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Lab01.Interface;
 using Lab01.MainMenuItems;
+using Lab01.Public;
 
 public class Program
 {
@@ -18,18 +19,8 @@ public class Program
     }
 
     public static void PrintMainMenu() {
-        var exampleDictionary = new Dictionary<int, Type>();
-        var exampleInterfaceType = typeof(MainMenuItem);
-        var exampleClasses = AppDomain.CurrentDomain.GetAssemblies()
-            .SelectMany(s => s.GetTypes())
-            .Where(p => exampleInterfaceType.IsAssignableFrom(p) && p.IsClass);
-
-        int key = 0;
-        foreach (var exampleClass in exampleClasses)
-        {
-            exampleDictionary.Add(key, exampleClass);
-            key++;
-        }
+        // Create a dictionary of the MainMenuItem interface
+        Dictionary<int, Type> exampleDictionary = MainMenuDict.GetDict();
 
         Console.WriteLine("Welcome to the Main Menu!");
         Console.WriteLine("Please select an option:");
