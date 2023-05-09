@@ -16,11 +16,9 @@ namespace Lab01.Public
                 .SelectMany(s => s.GetTypes())
                 .Where(p => exampleInterfaceType.IsAssignableFrom(p) && p.IsClass);
 
-            int key = 0;
             foreach (var exampleClass in exampleClasses)
             {
-                exampleDictionary.Add(key, exampleClass);
-                key++;
+                exampleDictionary.Add(exampleDictionary.Count, exampleClass);
             }
             return exampleDictionary;
         }
