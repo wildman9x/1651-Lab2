@@ -21,9 +21,7 @@ public class Program
 
     public static void MainMenu()
     {
-        // Create a dictionary of the MainMenuItem interface
-        Dictionary<int, Type> exampleDictionary = MenuDict.GetMenu(typeof(MainMenuItem));
-        PrintMenu.Run(exampleDictionary);
-        Option.Choose(exampleDictionary);
+        MenuDict.PrepareMenu(MenuDict.GetMenu(typeof(MainMenuItem)));
     }
+
 }

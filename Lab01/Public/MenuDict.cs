@@ -7,7 +7,8 @@ namespace Lab01.Public
 {
     public class MenuDict
     {
-        public static Dictionary<int, Type> GetMenu(Type type) {
+        public static Dictionary<int, Type> GetMenu(Type type)
+        {
             var exampleDictionary = new Dictionary<int, Type>();
             var exampleInterfaceType = type;
             var exampleClasses = AppDomain.CurrentDomain.GetAssemblies()
@@ -19,6 +20,12 @@ namespace Lab01.Public
                 exampleDictionary.Add(exampleDictionary.Count, exampleClass);
             }
             return exampleDictionary;
+        }
+
+        public static void PrepareMenu(Dictionary<int, Type> exampleDictionary, bool pressKey = true)
+        {
+            PrintMenu.Run(exampleDictionary);
+            Option.Choose(exampleDictionary, pressKey);
         }
     }
 }

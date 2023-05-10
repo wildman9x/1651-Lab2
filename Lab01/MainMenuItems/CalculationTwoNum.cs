@@ -16,9 +16,7 @@ namespace Lab01.MainMenuItems
 
         public void Run()
         {
-            Dictionary<int, Type> calculationTwoNumMenuItems = MenuDict.GetMenu(typeof(CalculationTwoNumMenuItem));
-            PrintMenu.Run(calculationTwoNumMenuItems);
-            Option.Choose(calculationTwoNumMenuItems, pressKey: false);
+            MenuDict.PrepareMenu(MenuDict.GetMenu(typeof(CalculationTwoNumMenuItem)), false);
         }
     }
 }

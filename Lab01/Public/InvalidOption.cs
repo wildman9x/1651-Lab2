@@ -7,12 +7,15 @@ namespace Lab01.Public
 {
     public class InvalidOption
     {
-        public static void Print()
+        public static void Print(bool pressKey = true)
         {
-            Console.WriteLine("Invalid option");
-            Console.WriteLine("Press any key to continue...");
-            Console.ReadKey();
-            return;
+            if (pressKey)
+            {
+                Console.WriteLine("Invalid option");
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
+                return;
+            }
         }
     }
 }

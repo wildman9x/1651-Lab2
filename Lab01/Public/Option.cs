@@ -22,7 +22,7 @@ namespace Lab01.Public
             }
             catch (Exception e)
             {
-                InvalidOption.Print();
+                InvalidOption.Print(pressKey);
                 return;
             }
         }
