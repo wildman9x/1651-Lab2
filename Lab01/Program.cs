@@ -23,9 +23,7 @@ public class Program
     {
         // Create a dictionary of the MainMenuItem interface
         Dictionary<int, Type> exampleDictionary = MenuDict.GetMenu(typeof(MainMenuItem));
-
         PrintMenu.Run(exampleDictionary);
         Option.Choose(exampleDictionary);
-
     }
 }
