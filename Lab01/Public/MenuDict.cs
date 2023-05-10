@@ -2,16 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Lab01.Interface;
 
 namespace Lab01.Public
 {
-    public class MainMenuDict
+    public class MenuDict
     {
-        public static Dictionary<int, Type> GetDict()
-        {
+        public static Dictionary<int, Type> GetMenu(Type type) {
             var exampleDictionary = new Dictionary<int, Type>();
-            var exampleInterfaceType = typeof(MainMenuItem);
+            var exampleInterfaceType = type;
             var exampleClasses = AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(s => s.GetTypes())
                 .Where(p => exampleInterfaceType.IsAssignableFrom(p) && p.IsClass);
