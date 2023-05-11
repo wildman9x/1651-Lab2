@@ -6,7 +6,7 @@ using Lab02.Interface;
 
 namespace Lab02.UpdateProductItems
 {
-    public class ByPrice : UpdateProduct
+    public class ByPrice : IUpdateProduct
     {
         public string GetName()
         {

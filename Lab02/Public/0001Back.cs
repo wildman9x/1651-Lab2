@@ -4,18 +4,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Lab02.Interface;
 
-namespace Lab02.MainMenuItems
+namespace Lab02.Public
 {
-    public class UpdateProduct : MainMenuItem
+    public class Back : SearchProducts, IUpdateProduct
     {
         public string GetName()
         {
-            return "Update a Product";
+            return "Back";
         }
 
         public void Run()
         {
-            Public.MenuDict.PrepareMenu(Public.MenuDict.GetMenu(typeof(IUpdateProduct)), false);
+            return;
         }
     }
 }

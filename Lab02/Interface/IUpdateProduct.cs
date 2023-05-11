@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Lab02.Interface
 {
-    public interface UpdateProduct : MenuItem
+    public interface IUpdateProduct : MenuItem
     {
         
     }
