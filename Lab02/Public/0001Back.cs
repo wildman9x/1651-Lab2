@@ -6,7 +6,7 @@ using Lab02.Interface;
 
 namespace Lab02.Public
 {
-    public class Back : SearchProducts, IUpdateProduct
+    public class Back : MenuItem
     {
         public string GetName()
         {
