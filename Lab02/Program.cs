@@ -2,73 +2,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Lab02.Interface;
+using Lab02.Public;
 
 namespace Lab02
 {
     public class Program
     {
+        public static Dictionary<string, Product> products = new Dictionary<string, Product>(StringComparer.OrdinalIgnoreCase);
         public static void Main(string[] args)
         {
-            Student student1 = new Student()
+            while (true)
             {
-                StudentID = Guid.NewGuid().ToString(),
-                Name = "John",
-                DateOfBirth = new DateTime(1990, 1, 1),
-                Address = "123 Main St",
-                Phone = "123-456-7890",
-                Email = "john@gmail.com",
-                Grades = new Dictionary<string, double>()
-                {
-                    {"C# Programming", 95},
-                    {"Database", 85},
-                    {"Web Development", 90},
-                    {"Math", 100},
-                    {"English", 80},
-                    {"Physics", 75}
-                },
-            };
-            // Print grade of math
-            Console.WriteLine("Grade of Math: " + student1.Grades["Math"]);
-            // Print GPA
-            Console.WriteLine("GPA: " + student1.CalculateGPA());
-            // Print student info
-            student1.PrintInfo();
-
-            Dictionary<string, Product> products = new Dictionary<string, Product>();
-            products.Add("iPhone 6", new Product()
-            {
-                Name = "iPhone 6",
-                ManufactureDate = new DateTime(2016, 1, 1),
-                ExpiryDate = new DateTime(2018, 1, 1),
-                Price = 500
-            });
-            products.Add("iPhone 7", new Product()
-            {
-                Name = "iPhone 7",
-                ManufactureDate = new DateTime(2017, 1, 1),
-                ExpiryDate = new DateTime(2019, 1, 1),
-                Price = 600
-            });
-            products.Add("iPhone 8", new Product()
-            {
-                Name = "iPhone 8",
-                ManufactureDate = new DateTime(2018, 1, 1),
-                ExpiryDate = new DateTime(2020, 1, 1),
-                Price = 700
-            });
-            products.Add("iPhone X", new Product()
-            {
-                Name = "iPhone X",
-                ManufactureDate = new DateTime(2019, 1, 1),
-                ExpiryDate = new DateTime(2021, 1, 1),
-                Price = 800
-            });
-
-            // Add a product
-            AddProduct(products);
-
-            // Search for a product by name
-            SearchProduct(products);
+                MenuDict.PrepareMenu(MenuDict.GetMenu(typeof(MainMenuItem)));
+                Console.Clear();
+            }
+            
         }
 
         private static void SearchProduct(Dictionary<string, Product> products)

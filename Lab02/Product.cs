@@ -29,10 +29,7 @@ namespace Lab02
         // print product info
         public void PrintInfo()
         {
-            Console.WriteLine("Name: " + Name);
-            Console.WriteLine("Manufacture Date: " + ManufactureDate);
-            Console.WriteLine("Expiry Date: " + ExpiryDate);
-            Console.WriteLine("Price: " + Price);
+            Console.WriteLine("Name: {0} \nManufacture Date: {1} \nExpiry Date: {2} \nPrice: {3}", Name, ManufactureDate, ExpiryDate, Price);
         }
     }
 }
