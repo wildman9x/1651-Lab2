@@ -24,6 +24,9 @@ namespace Lab03.Public
 
         public static void PrepareMenu(Dictionary<int, Type> exampleDictionary, bool pressKey = true)
         {
+            if (!pressKey) {
+                exampleDictionary.Add(exampleDictionary.Count, typeof(Back));
+            }
             PrintMenu.Run(exampleDictionary);
             Option.Choose(exampleDictionary, pressKey);
         }
