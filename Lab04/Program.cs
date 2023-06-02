@@ -28,15 +28,9 @@ class Program
             try
             {
                 var choice = int.Parse(Console.ReadLine());
-                if (menuItems.ContainsKey(choice))
-                {
+                
                     Context.SetStrategy(menuItems[choice]);
                     Context.RunStrategy();
-                }
-                else
-                {
-                    Console.WriteLine("Invalid choice!");
-                }
             }
             catch (Exception e)
             {
