@@ -1,0 +1,10 @@
+@startuml
+class Product {
+    + ID : int <<get>> <<set>>
+    + Name : string <<get>> <<set>>
+    + Price : double <<get>> <<set>>
+    + Product()
+    + Product(name:string, price:double)
+    + <<override>> ToString() : string
+}
+@enduml

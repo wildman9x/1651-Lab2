@@ -1,0 +1,6 @@
+@startuml
+interface MenuItem {
+    + GetName() : string
+    + Run() : void
+}
+@enduml

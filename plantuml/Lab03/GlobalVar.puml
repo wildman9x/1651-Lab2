@@ -1,0 +1,8 @@
+@startuml
+class GlobalVar {
+}
+class "Dictionary`2"<T1,T2> {
+}
+GlobalVar o-> "PersonDict<string,Person>" "Dictionary`2"
+GlobalVar o-> "StudentDict<string,Student>" "Dictionary`2"
+@enduml

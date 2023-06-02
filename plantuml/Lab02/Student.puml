@@ -1,0 +1,17 @@
+@startuml
+class Student {
+    + Name : string <<get>> <<set>>
+    + Address : string <<get>> <<set>>
+    + Phone : string <<get>> <<set>>
+    + Email : string <<get>> <<set>>
+    + StudentID : string <<get>> <<set>>
+    + Student()
+    + AddGrade(course:string, grade:double) : void
+    + CalculateGPA() : double
+    + PrintInfo() : void
+}
+class "Dictionary`2"<T1,T2> {
+}
+Student --> "DateOfBirth" DateTime
+Student o-> "Grades<string,double>" "Dictionary`2"
+@enduml

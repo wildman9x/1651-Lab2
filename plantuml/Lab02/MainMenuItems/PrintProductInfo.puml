@@ -1,0 +1,7 @@
+@startuml
+class PrintProductInfo {
+    + GetName() : string
+    + Run() : void
+}
+MainMenuItem <|-- PrintProductInfo
+@enduml

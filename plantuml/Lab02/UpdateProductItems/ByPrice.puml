@@ -1,0 +1,7 @@
+@startuml
+class ByPrice {
+    + GetName() : string
+    + Run() : void
+}
+IUpdateProduct <|-- ByPrice
+@enduml

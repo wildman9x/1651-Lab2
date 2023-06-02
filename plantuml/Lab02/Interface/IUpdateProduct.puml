@@ -1,0 +1,5 @@
+@startuml
+interface IUpdateProduct {
+}
+MenuItem <|-- IUpdateProduct
+@enduml

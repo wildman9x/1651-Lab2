@@ -1,0 +1,7 @@
+@startuml
+class Exit {
+    + Name : string <<get>>
+    + Run() : void
+}
+IMenuItem <|-- Exit
+@enduml

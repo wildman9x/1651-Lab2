@@ -1,0 +1,7 @@
+@startuml
+class Fibonacci {
+    + GetName() : string
+    + Run() : void
+}
+MainMenuItem <|-- Fibonacci
+@enduml

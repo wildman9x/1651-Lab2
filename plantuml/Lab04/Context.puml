@@ -1,0 +1,8 @@
+@startuml
+class Context {
+    + Context()
+    + Context(menuItem:IMenuItem)
+    + SetStrategy(menuItem:IMenuItem) : void
+    + RunStrategy() : void
+}
+@enduml

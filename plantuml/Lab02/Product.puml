@@ -1,0 +1,11 @@
+@startuml
+class Product {
+    + Name : string <<get>> <<set>>
+    + Price : double <<get>> <<set>>
+    + Product()
+    + CheckExpiry() : bool
+    + PrintInfo() : void
+}
+Product --> "ManufactureDate" DateTime
+Product --> "ExpiryDate" DateTime
+@enduml

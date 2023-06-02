@@ -1,0 +1,7 @@
+@startuml
+class UpdateProduct {
+    + GetName() : string
+    + Run() : void
+}
+MainMenuItem <|-- UpdateProduct
+@enduml

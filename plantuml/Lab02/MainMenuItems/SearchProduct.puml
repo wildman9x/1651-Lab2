@@ -1,0 +1,7 @@
+@startuml
+class SearchProduct {
+    + GetName() : string
+    + Run() : void
+}
+MainMenuItem <|-- SearchProduct
+@enduml

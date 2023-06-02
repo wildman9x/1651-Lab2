@@ -1,0 +1,8 @@
+@startuml
+class ProductIDCount {
+    + Count : int <<get>> <<set>> = 0
+    + Increase() : void
+    + Decrease() : void
+}
+ProductIDCount --> "Instance" ProductIDCount
+@enduml

@@ -1,0 +1,5 @@
+@startuml
+class InvalidOption {
+    + {static} Print(pressKey:bool) : void
+}
+@enduml

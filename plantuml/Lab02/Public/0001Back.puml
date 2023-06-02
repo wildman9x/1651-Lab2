@@ -1,0 +1,7 @@
+@startuml
+class Back {
+    + GetName() : string
+    + Run() : void
+}
+MenuItem <|-- Back
+@enduml

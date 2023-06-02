@@ -1,0 +1,7 @@
+@startuml
+class AddProduct {
+    + Name : string <<get>>
+    + Run() : void
+}
+IMenuItem <|-- AddProduct
+@enduml

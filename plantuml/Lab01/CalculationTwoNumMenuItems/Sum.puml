@@ -1,0 +1,7 @@
+@startuml
+class Sum {
+    + GetName() : string
+    + Run() : void
+}
+CalculationTwoNumMenuItem <|-- Sum
+@enduml

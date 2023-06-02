@@ -1,0 +1,6 @@
+@startuml
+interface IMenuItem {
+    + Name : string <<get>>
+    + Run() : void
+}
+@enduml

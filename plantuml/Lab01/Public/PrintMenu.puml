@@ -1,0 +1,5 @@
+@startuml
+class PrintMenu {
+    + {static} Run(dict:Dictionary<int, Type>) : void
+}
+@enduml

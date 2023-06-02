@@ -1,0 +1,6 @@
+@startuml
+class MenuDict {
+    + {static} GetMenu(type:Type) : Dictionary<int, Type>
+    + {static} PrepareMenu(exampleDictionary:Dictionary<int, Type>, pressKey:bool) : void
+}
+@enduml

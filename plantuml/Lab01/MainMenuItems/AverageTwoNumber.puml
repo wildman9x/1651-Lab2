@@ -1,0 +1,7 @@
+@startuml
+class AverageTwoNumber {
+    + GetName() : string
+    + Run() : void
+}
+MainMenuItem <|-- AverageTwoNumber
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+class Person {
+    + Name : string <<get>> <<set>>
+    + Address : string <<get>> <<set>>
+    + PhoneNumber : string <<get>> <<set>>
+    + EmailAddress : string <<get>> <<set>>
+    + Person()
+    + <<virtual>> PrintInfo() : void
+}
+Person --> "Birthday" DateOnly
+@enduml

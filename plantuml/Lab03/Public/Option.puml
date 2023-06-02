@@ -1,0 +1,5 @@
+@startuml
+class Option {
+    + {static} Choose(exampleDictionary:Dictionary<int, Type>, pressKey:bool) : void
+}
+@enduml

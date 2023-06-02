@@ -1,0 +1,8 @@
+@startuml
+class Program {
+    + {static} Main(args:string[]) : void
+}
+class "Dictionary`2"<T1,T2> {
+}
+Program o-> "products<string,Product>" "Dictionary`2"
+@enduml

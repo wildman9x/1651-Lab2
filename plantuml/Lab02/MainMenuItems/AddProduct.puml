@@ -1,0 +1,7 @@
+@startuml
+class AddProduct {
+    + GetName() : string
+    + Run() : void
+}
+MainMenuItem <|-- AddProduct
+@enduml

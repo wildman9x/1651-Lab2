@@ -1,0 +1,7 @@
+@startuml
+class ByName {
+    + GetName() : string
+    + Run() : void
+}
+SearchStudentMenuItem <|-- ByName
+@enduml

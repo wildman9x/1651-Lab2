@@ -1,0 +1,7 @@
+@startuml
+class Sort {
+    + GetName() : string
+    + Run() : void
+}
+MainMenuItem <|-- Sort
+@enduml

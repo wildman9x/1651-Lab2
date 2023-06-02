@@ -1,0 +1,7 @@
+@startuml
+class ShowStudents {
+    + GetName() : string
+    + Run() : void
+}
+MainMenuItem <|-- ShowStudents
+@enduml

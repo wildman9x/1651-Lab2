@@ -1,0 +1,13 @@
+@startuml
+class ProductDict {
+    + Add(product:Product) : void
+    + Remove(id:int) : void
+    + Update(id:int, product:Product) : void
+    + Get(id:int) : Product
+    + GetAll() : List<Product>
+}
+class "Dictionary`2"<T1,T2> {
+}
+ProductDict --> "Instance" ProductDict
+ProductDict o-> "Products<int,Product>" "Dictionary`2"
+@enduml

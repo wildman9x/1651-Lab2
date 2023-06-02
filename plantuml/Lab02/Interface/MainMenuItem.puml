@@ -1,0 +1,5 @@
+@startuml
+interface MainMenuItem {
+}
+MenuItem <|-- MainMenuItem
+@enduml

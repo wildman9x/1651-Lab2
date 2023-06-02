@@ -1,0 +1,7 @@
+@startuml
+class Square {
+    + GetName() : string
+    + Run() : void
+}
+MainMenuItem <|-- Square
+@enduml

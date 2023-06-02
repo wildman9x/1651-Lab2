@@ -1,0 +1,7 @@
+@startuml
+class ByProductionDate {
+    + GetName() : string
+    + Run() : void
+}
+SearchProducts <|-- ByProductionDate
+@enduml

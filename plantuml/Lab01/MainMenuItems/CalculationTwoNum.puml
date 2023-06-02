@@ -1,0 +1,7 @@
+@startuml
+class CalculationTwoNum {
+    + GetName() : string
+    + Run() : void
+}
+MainMenuItem <|-- CalculationTwoNum
+@enduml

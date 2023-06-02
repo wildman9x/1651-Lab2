@@ -1,0 +1,7 @@
+@startuml
+class DeleteStudent {
+    + GetName() : string
+    + Run() : void
+}
+MainMenuItem <|-- DeleteStudent
+@enduml

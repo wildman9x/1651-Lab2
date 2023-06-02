@@ -1,0 +1,10 @@
+@startuml
+class Student {
+    + StudentId : string <<get>> <<set>>
+    + Class : string <<get>> <<set>>
+    + School : string <<get>> <<set>>
+    + Student()
+    + <<override>> PrintInfo() : void
+}
+Person <|-- Student
+@enduml
