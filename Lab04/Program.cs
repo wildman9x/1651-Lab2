@@ -5,13 +5,13 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Lab04.Interface;
 using Lab04.MenuItem;
+using Lab04.Singleton;
 
 namespace Lab04;
 class Program
 {
     static void Main(string[] args)
     {
-        var Context = new Context();
         // Create all class in the MenuItem.MainMenu namespace and put into the menuItems dictionary
         List<IMenuItem> menuItemsList = Assembly.GetExecutingAssembly().GetTypes()
             .Where(t => t.Namespace == "Lab04.MenuItem.MainMenu" && t.IsClass && !t.IsAbstract && typeof(IMenuItem).IsAssignableFrom(t))
@@ -21,11 +21,6 @@ class Program
         {
             menuItems.Add(menuItems.Count, menuItem);
         }
-        
-        // menuItems.Add(menuItems.Count, new MenuItem.MainMenu.Exit());
-        // menuItems.Add(menuItems.Count, new MenuItem.MainMenu.ShowAllProduct());
-        // menuItems.Add(menuItems.Count, new MenuItem.MainMenu.AddProduct());
-        
 
         while (true)
         {
@@ -40,8 +35,8 @@ class Program
             {
                 var choice = int.Parse(Console.ReadLine());
                 
-                    Context.SetStrategy(menuItems[choice]);
-                    Context.RunStrategy();
+                    Singleton.Context.Instance.SetStrategy(menuItems[choice]);
+                    Singleton.Context.Instance.RunStrategy();
             }
             catch (Exception e)
             {
