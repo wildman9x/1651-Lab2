@@ -8,6 +8,6 @@ namespace Lab04.Interface
     public interface IMenuItem
     {
         public string Name {get;}
-        public void Run();
+        public void Run() => Console.WriteLine("Not yet implemented!");
     }
 }
