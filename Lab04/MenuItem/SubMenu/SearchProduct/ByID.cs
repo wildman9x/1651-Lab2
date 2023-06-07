@@ -8,14 +8,14 @@ using Lab04.Singleton;
 
 namespace Lab04.MenuItem.SubMenu.SearchProduct
 {
-    public class ByName : IMenuItem
+    public class ByID : IMenuItem
     {
-        public string Name => "Search by name";
+        public string Name => "Search by ID";
         public void Run() {
-            Console.WriteLine("Enter product name:");
-            string name = Console.ReadLine();
-            var products = ProductDict.Instance.Products.Where(p => p.Value.Name.ToLower().Contains(name.ToLower()));
-            if (products.Count() == 0)
+            Console.WriteLine("Enter product ID:");
+            int id = int.Parse(Console.ReadLine());
+            var product = ProductDict.Instance.Products.Where(p => p.Key == id);
+            if (product.Count() == 0)
             {
                 Console.WriteLine("No product found!");
             }
@@ -23,7 +23,7 @@ namespace Lab04.MenuItem.SubMenu.SearchProduct
             {
                 Console.WriteLine("Product found:");
                 var table = new ConsoleTable("ID", "Name", "Price");
-                foreach (var p in products)
+                foreach (var p in product)
                 {
                     table.AddRow(p.Key, p.Value.Name, p.Value.Price);
                 }
