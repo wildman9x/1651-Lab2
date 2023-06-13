@@ -7,6 +7,8 @@ using Lab05.Models;
 using Lab05.Singleton;
 using ConsoleTables;
 using Lab05.Context;
+using Lab05.Interface;
+using Lab05.Public;
 
 namespace Lab05;
 class Program
@@ -49,26 +51,50 @@ class Program
             table.AddRow(user.ID, user.FullName, user.Username, user.Password, user.GetType().Name);
         }
         table.Write();
+        while (true)
+        {
+            Console.WriteLine("0. Exit");
+            Console.WriteLine("1. Search Order");
+            Console.WriteLine("2. Search Product");
 
-        Dictionary<int, Type> MenuItems = new();
-        MenuItems.Add(MenuItems.Count, typeof(OrderSearchContext));
-        MenuItems.Add(MenuItems.Count, typeof(ProductSearchContext));
-        // prompt the user to choose a menuitem
-        while (true) {
-            Console.WriteLine("Choose a menu item: ");
-            foreach (var item in MenuItems)
-            {
-                Console.WriteLine($"{item.Key}. {item.Value.Name}");
-            }
             int choice = int.Parse(Console.ReadLine());
-            if (choice < 0 || choice >= MenuItems.Count)
+            switch (choice)
             {
-                Console.WriteLine("Invalid choice");
-                continue;
+                case 0:
+                    Environment.Exit(0);
+                    break;
+                case 1:
+                    var context = new OrderSearchContext();
+                    List<OrderSearchStrategy> strategies = Assembly.GetExecutingAssembly().GetTypes()
+            .Where(t => t.IsClass && !t.IsAbstract && typeof(OrderSearchStrategy).IsAssignableFrom(t))
+            .Select(t => Activator.CreateInstance(t) as OrderSearchStrategy).ToList();
+                    Dictionary<int, OrderSearchStrategy> strategiesDict = new();
+                    foreach (var strategy in strategies)
+                    {
+                        strategiesDict.Add(strategiesDict.Count, strategy);
+                    }
+                    Console.WriteLine("Choose search strategy:");
+                    foreach (var strategy in strategiesDict)
+                    {
+                        // get type name from strategy and separate by camel case
+                        string strategyName = NameNormalization.CamelCase(strategy.Value.GetType().Name);
+                        Console.WriteLine($"{strategy.Key}. {strategyName}");
+                    }
+                    try
+                    {
+                        int strategyChoice = int.Parse(Console.ReadLine());
+                        context.Strategy = strategiesDict[strategyChoice];
+                        context.RunStrategy();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Invalid choice");
+                        break;
+                    }
+                    break;
             }
-            // create an instance of the chosen menuitem
-            var menuItem = Activator.CreateInstance(MenuItems[choice]);
-            
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
         }
     }
 }
