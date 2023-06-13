@@ -11,7 +11,7 @@ namespace Lab05.Context
     public class ProductSearchContext
     {
         private Dictionary<int, Product> Products { get; set; } = ProductDict.Instance.Products;
-        public ProductSearchStrategy Strategy { get; private set; }
+        public ProductSearchStrategy Strategy { get; set; }
 
         public void RunStrategy(){
             this.Strategy.Search(this.Products);

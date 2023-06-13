@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Lab05.Models;
 using Lab05.Singleton;
 using ConsoleTables;
+using Lab05.Context;
 
 namespace Lab05;
 class Program
@@ -48,5 +49,26 @@ class Program
             table.AddRow(user.ID, user.FullName, user.Username, user.Password, user.GetType().Name);
         }
         table.Write();
+
+        Dictionary<int, Type> MenuItems = new();
+        MenuItems.Add(MenuItems.Count, typeof(OrderSearchContext));
+        MenuItems.Add(MenuItems.Count, typeof(ProductSearchContext));
+        // prompt the user to choose a menuitem
+        while (true) {
+            Console.WriteLine("Choose a menu item: ");
+            foreach (var item in MenuItems)
+            {
+                Console.WriteLine($"{item.Key}. {item.Value.Name}");
+            }
+            int choice = int.Parse(Console.ReadLine());
+            if (choice < 0 || choice >= MenuItems.Count)
+            {
+                Console.WriteLine("Invalid choice");
+                continue;
+            }
+            // create an instance of the chosen menuitem
+            var menuItem = Activator.CreateInstance(MenuItems[choice]);
+            
+        }
     }
 }
