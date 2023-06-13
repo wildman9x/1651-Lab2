@@ -19,6 +19,7 @@ namespace Lab05.Strategy.ProductStrategy
             {
                 var table = new ConsoleTable("ID", "Name", "Price", "Quantity");
                 var product = products[id];
+                table.AddRow(product.ID, product.Name, product.Price, product.Quantity);
                 table.Write();
             }
             catch (Exception)

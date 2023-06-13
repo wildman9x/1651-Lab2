@@ -57,44 +57,38 @@ class Program
             Console.WriteLine("1. Search Order");
             Console.WriteLine("2. Search Product");
 
-            int choice = int.Parse(Console.ReadLine());
-            switch (choice)
+            try
             {
-                case 0:
-                    Environment.Exit(0);
-                    break;
-                case 1:
-                    var context = new OrderSearchContext();
-                    List<OrderSearchStrategy> strategies = Assembly.GetExecutingAssembly().GetTypes()
-            .Where(t => t.IsClass && !t.IsAbstract && typeof(OrderSearchStrategy).IsAssignableFrom(t))
-            .Select(t => Activator.CreateInstance(t) as OrderSearchStrategy).ToList();
-                    Dictionary<int, OrderSearchStrategy> strategiesDict = new();
-                    foreach (var strategy in strategies)
-                    {
-                        strategiesDict.Add(strategiesDict.Count, strategy);
-                    }
-                    Console.WriteLine("Choose search strategy:");
-                    foreach (var strategy in strategiesDict)
-                    {
-                        // get type name from strategy and separate by camel case
-                        string strategyName = NameNormalization.CamelCase(strategy.Value.GetType().Name);
-                        Console.WriteLine($"{strategy.Key}. {strategyName}");
-                    }
-                    try
-                    {
-                        int strategyChoice = int.Parse(Console.ReadLine());
-                        context.Strategy = strategiesDict[strategyChoice];
-                        context.RunStrategy();
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine("Invalid choice");
+                int choice = int.Parse(Console.ReadLine());
+                switch (choice)
+                {
+                    case 0:
+                        Environment.Exit(0);
                         break;
-                    }
-                    break;
+                    case 1:
+                        var context = new OrderSearchContext();
+                        Dictionary<int, OrderSearchStrategy> strategiesDict = MenuPrepare.MenuDict<OrderSearchStrategy>();
+                        Console.WriteLine("Choose search strategy:");
+                        MenuPrepare.Print(strategiesDict);
+                        MenuPrepare.Input(strategiesDict, context);
+                        break;
+                    case 2:
+                        var context1 = new ProductSearchContext();
+                        Dictionary<int, ProductSearchStrategy> strategiesDict1 = MenuPrepare.MenuDict<ProductSearchStrategy>();
+                        Console.WriteLine("Choose search strategy:");
+                        MenuPrepare.Print(strategiesDict1);
+                        MenuPrepare.Input(strategiesDict1, context1);
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                
             }
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
+            Console.Clear();
         }
     }
 }
