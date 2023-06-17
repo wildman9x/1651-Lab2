@@ -13,9 +13,10 @@ namespace Lab05.Context
         private Dictionary<int, Product> Products { get; set; } = ProductDict.Instance.Products;
         private Dictionary<int, Order> Orders { get; set; } = OrderDict.Instance.Orders;
         private List<OrderDetail> OrderDetails { get; set; } = OrderDetailList.Instance.OrderDetails;
+        private Dictionary<int, Customer> Customers { get; set; } = CustomerDict.Instance.Customers;
         public OrderSearchStrategy Strategy { get; set; }
         public void RunStrategy(){
-            this.Strategy.Search(this.Orders, this.OrderDetails, this.Products);
+            this.Strategy.Search(this.Orders, this.OrderDetails, this.Products, this.Customers);
         }
     }
 }

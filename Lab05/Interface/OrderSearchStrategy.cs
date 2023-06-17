@@ -8,6 +8,6 @@ namespace Lab05.Interface
 {
     public interface OrderSearchStrategy
     {
-        public void Search (Dictionary<int, Order> orders, List<OrderDetail> orderDetails, Dictionary<int, Product> products);
+        public void Search (Dictionary<int, Order> orders, List<OrderDetail> orderDetails, Dictionary<int, Product> products, Dictionary<int, Customer> customers);
     }
 }

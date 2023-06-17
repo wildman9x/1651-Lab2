@@ -11,10 +11,9 @@ namespace Lab05.Models
         public int OrderID { get; set; }
         public int ProductID { get; set; }
         public int Quantity { get; set; } = 1;
-        public float Price { get; private set; }
+        public float Price { get; set; }
         public OrderDetail()
         {
-            this.Price = ProductDict.Instance.Products[ProductID].Price * Quantity;
         }
     }
 }

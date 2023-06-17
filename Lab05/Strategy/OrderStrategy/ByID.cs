@@ -10,7 +10,7 @@ namespace Lab05.Strategy.OrderStrategy
 {
     public class ByID : OrderSearchStrategy
     {
-        public void Search(Dictionary<int, Order> orders, List<OrderDetail> orderDetails, Dictionary<int, Product> products)
+        public void Search(Dictionary<int, Order> orders, List<OrderDetail> orderDetails, Dictionary<int, Product> products, Dictionary<int, Customer> customers)
         {
             Console.WriteLine("Search by ID");
             Console.WriteLine("Enter ID: ");
@@ -20,6 +20,7 @@ namespace Lab05.Strategy.OrderStrategy
                 var table = new ConsoleTable("ID", "Customer", "Date", "Total");
                 var order = orders[id];
                 table.AddRow(order.ID, order.CustomerID, order.DateCreated, order.TotalPrice);
+                Console.WriteLine($"Order ID: {order.ID}/nCustomer ID: {order.CustomerID}/nCustomer Name: {customers[order.CustomerID].Name}/nDate Created: {order.DateCreated}/nTotal Price: {order.TotalPrice}");
                 table.Write();
                 Console.WriteLine("Order Details");
                 var table2 = new ConsoleTable("Product", "Price", "Quantity");

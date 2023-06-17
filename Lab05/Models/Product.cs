@@ -9,7 +9,7 @@ namespace Lab05.Models
     public class Product
     {
         public string Name {get; set;} = "Unnamed Product";
-        public int ID {get; private set;} = ProductDict.Instance.Products.Count;
+        public int ID {get; set;} = ProductDict.Instance.Products.Count;
         public float Price {get; set;}
         public int Size {get; set;}
         public int Quantity {get; set;}

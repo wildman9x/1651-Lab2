@@ -57,5 +57,13 @@ namespace Lab05.Public
                 Console.WriteLine("Invalid choice!");
             }
         }
+        public static void Prepare<T, R>() where R : new()
+        {
+            var context = new R();
+            Dictionary<int, T> strategiesDict = MenuPrepare.MenuDict<T>();
+            Console.WriteLine("Choose search strategy:");
+            MenuPrepare.Print(strategiesDict);
+            MenuPrepare.Input(strategiesDict, context);
+        }
     }
 }

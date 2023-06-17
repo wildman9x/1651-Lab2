@@ -11,7 +11,7 @@ namespace Lab05.Models
         // username
         public string Username { get; set; }
         public string Password { get; set; }
-        public int ID { get; private set; } = UserDict.Instance.Users.Count;
+        public int ID { get; set; } = UserDict.Instance.Users.Count;
         public string FullName { get; set; } = "Unnamed User";
 
         public User()
