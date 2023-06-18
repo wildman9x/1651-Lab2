@@ -16,15 +16,7 @@ namespace Lab05.Strategy.ProductStrategy
             Console.WriteLine("Enter size: ");
             int size = int.Parse(Console.ReadLine());
             var table = new ConsoleTable("ID", "Name", "Price", "Size", "Quantity");
-            // foreach (var product in products.Values)
-            // {
-            //     if (product.Size == size)
-            //     {
-            //         table.AddRow(product.ID, product.Name, product.Price, product.Quantity);
-            //     }
-            // }
-            var productResults = products.Values.Where(p => p.Size == size);
-            foreach (var product in productResults)
+            foreach (var product in products.Values.Where(p => p.Size == size))
             {
                 table.AddRow(product.ID, product.Name, product.Price, product.Size, product.Quantity);
             }

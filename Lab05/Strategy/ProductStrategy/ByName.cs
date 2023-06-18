@@ -16,15 +16,7 @@ namespace Lab05.Strategy.ProductStrategy
             Console.WriteLine("Enter name: ");
             string name = Console.ReadLine();
             var table = new ConsoleTable("ID", "Name", "Price", "Size", "Quantity");
-            // foreach (var product in products.Values)
-            // {
-            //     if (product.Name.Contains(name))
-            //     {
-            //         table.AddRow(product.ID, product.Name, product.Price, product.Quantity);
-            //     }
-            // }
-            var productResults = products.Values.Where(product => product.Name.ToLower().Contains(name.ToLower()));
-            foreach (var product in productResults)
+            foreach (var product in products.Values.Where(product => product.Name.ToLower().Contains(name.ToLower())))
             {
                 table.AddRow(product.ID, product.Name, product.Price, product.Size, product.Quantity);
             }
