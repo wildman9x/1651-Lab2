@@ -18,10 +18,13 @@ namespace Lab05.Strategy.OrderStrategy
             var orderResult = orders.Values.Where(o => customers[o.CustomerID].Phone.ToLower().Contains(phoneNumber.ToLower()));
             try
             {
+                if (orderResult.Count() == 0)
+                {
+                    Console.WriteLine("This Customer has no order");
+                    return;
+                }
                 foreach (var order in orderResult)
                 {
-                    if (customers[order.CustomerID].Phone.ToLower().Contains(phoneNumber.ToLower()))
-                    {
                         Console.WriteLine($"Order ID: {order.ID}\nCustomer ID: {order.CustomerID}\nCustomer Name: {customers[order.CustomerID].Name}\nDate Created: {order.DateCreated}\nTotal Price: {order.TotalPrice}");
                         var table = new ConsoleTable("Product", "Unit Price", "Quantity", "Total Price");
                         foreach (var orderDetail in orderDetails)
@@ -33,7 +36,6 @@ namespace Lab05.Strategy.OrderStrategy
                             }
                         }
                         table.Write();
-                    }
                 }
             }
             catch (Exception)

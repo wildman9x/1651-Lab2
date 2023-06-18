@@ -20,7 +20,7 @@ namespace Lab05.Strategy.OrderStrategy
                 var orderResult = orders.Values.Where(o => customers[o.CustomerID].Name.ToLower().Contains(name.ToLower()));
                 if (orderResult.Count() == 0)
                 {
-                    Console.WriteLine("Customer Name not found");
+                    Console.WriteLine("This Customer has no order");
                     return;
                 }
                 foreach (var order in orderResult) {

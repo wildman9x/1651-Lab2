@@ -17,11 +17,8 @@ namespace Lab05.Strategy.OrderStrategy
             int id = int.Parse(Console.ReadLine());
             try
             {
-                var table = new ConsoleTable("ID", "Customer", "Date", "Total");
                 var order = orders[id];
-                table.AddRow(order.ID, order.CustomerID, order.DateCreated, order.TotalPrice);
-                Console.WriteLine($"Order ID: {order.ID}/nCustomer ID: {order.CustomerID}/nCustomer Name: {customers[order.CustomerID].Name}/nDate Created: {order.DateCreated}/nTotal Price: {order.TotalPrice}");
-                table.Write();
+                Console.WriteLine($"Order ID: {order.ID}\nCustomer ID: {order.CustomerID}\nCustomer Name: {customers[order.CustomerID].Name}\nDate Created: {order.DateCreated}\nTotal Price: {order.TotalPrice}");
                 Console.WriteLine("Order Details");
                 var table2 = new ConsoleTable("Product", "Price", "Quantity");
                 foreach (var orderDetail in orderDetails)
