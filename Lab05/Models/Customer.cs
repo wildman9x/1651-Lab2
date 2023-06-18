@@ -12,10 +12,8 @@ namespace Lab05.Models
         public int ID {get; set;} = CustomerDict.Instance.Customers.Count;
         public string Phone {get; set;} = "0000000000";
         public string Address {get; set;} = "No Address";
-
         public Customer()
         {
-            
         }
 
         public string GetInfo()

@@ -16,8 +16,6 @@ namespace Lab05.Models
         public string Status { get; set; } = "Pending";
         public Order()
         {
-            
         }
-
     }
 }

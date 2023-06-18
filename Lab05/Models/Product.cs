@@ -13,14 +13,10 @@ namespace Lab05.Models
         public float Price {get; set;}
         public int Size {get; set;}
         public int Quantity {get; set;}
-
         public Product () {
-            
         }
-
         public string GetInfo() {
             return $"Name: {this.Name}\nID: {this.ID}\nPrice: {this.Price}\nSize: {this.Size}\nQuantity: {this.Quantity}";
         }
-
     }
 }
